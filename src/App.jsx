@@ -18,10 +18,12 @@ function Header() {
   )  
 }
 
-function PostIndex() {
+function PostIndex(props) {
+  console.log("The props are", props);
   return (
     <div id="posts-index">
     <h1>All post</h1>
+    <p>{props.name}</p>
   <form>
     <div>
       PostIndex: <input type="text" />
@@ -40,10 +42,33 @@ function Footer() {
 }
 
 function PostPage() {
+  let name = "Test";
+  let posts = [
+    {
+      id: 1,
+      title: "___",
+      body: "___",
+      image: "___",
+    },
+    {
+      id: 2,
+      title: "___",
+      body: "___",
+      image: "___",
+    },
+    {
+      id: 3,
+      title: "___",
+      body: "___",
+      image: "___",
+    },
+  ];
+
+
   return (
     <main>
       <PostNew />
-      <PostIndex />
+      <PostIndex name={name} posts={posts} />
     </main>
   )
 }
@@ -53,9 +78,7 @@ function App() {
     <div>      
       <Header />
 
-      <PostNew />
-
-      <PostIndex />
+      <PostPage />
 
       <Footer />
     </div>
