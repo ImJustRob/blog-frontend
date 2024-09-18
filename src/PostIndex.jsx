@@ -3,6 +3,7 @@ export function PostIndex(props) {
     return (
       <div id="posts-index">
       <h1>All post</h1>
+      <div className="cards"> 
       {props.posts.map(posts => (
           <div key={posts.id} className="posts">
             <h2>{posts.title}</h2>
@@ -11,6 +12,7 @@ export function PostIndex(props) {
             <button>More info</button>
           </div>
         ))}
+        </div>
   
   
   </div>    
