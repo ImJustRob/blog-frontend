@@ -1,35 +1,64 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+function Header() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <header>
+        <a href="#">Home</a> | <a href="#posts-index">All posts</a> | <a href="#posts-new">New post</a>
+      </header>
+  )
+}
+    function PostNew() {
+      return (
+        <div id="posts-new">
+        <h1>New post</h1>
+      <form>
+        <div>
+          PostNew: <input type="text" />
+          </div>
+      </form>
+    </div>
+  )  
+}
+
+function PostIndex() {
+  return (
+    <div id="posts-index">
+    <h1>All post</h1>
+  <form>
+    <div>
+      PostIndex: <input type="text" />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+  </form>
+</div>
   )
 }
 
-export default App
+function Footer() {
+  return (
+    <footer>
+      <p>Copyright 2022</p>
+    </footer>
+  )
+}
+
+function PostPage() {
+  return (
+    <main>
+      <PostNew />
+      <PostIndex />
+    </main>
+  )
+}
+
+function App() {
+  return (
+    <div>      
+      <Header />
+
+      <PostNew />
+
+      <PostIndex />
+
+      <Footer />
+    </div>
+  );
+}
+export default App;
