@@ -1,15 +1,15 @@
 export function PostIndex(props) {
-    console.log(props);
+    // console.log(props);
     return (
       <div id="posts-index">
       <h1>All post</h1>
       <div className="cards"> 
-      {props.posts.map(posts => (
-          <div key={posts.id} className="posts">
-            <h2>{posts.title}</h2>
-            <img src={posts.image} alt="" />
-            <p> {posts.body}</p>
-            <button onClick={props.onShowPost}>More info</button>
+      {props.posts.map(post => (
+          <div key={post.id} className="posts">
+            <h2>{post.title}</h2>
+            <img src={post.image} alt="" />
+            <p> {post.body}</p>
+            <button onClick={props.onShow(post)}>More info</button>
           </div>
         ))}
         </div>

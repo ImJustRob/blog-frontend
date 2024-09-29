@@ -3,10 +3,11 @@ import { PostNew } from "./PostNew";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Modal } from "./Modal";
+import { PostsShow } from "./PostsShow";
 
 
 
-export function PostPage() {
+export function PostsPage() {
     let name = "Test";
     const [posts,setPosts] = useState([]);
     const [isPostsShowVisible, setIsPostsShowVisible] = useState(false);
@@ -28,13 +29,23 @@ export function PostPage() {
    setIsPostsShowVisible(false);
   };
 
+  const handleCreate = (params) => {
+    console.log('handling create');
+    axios.post("http://localhost:3000/posts.json", params).then(response => {
+      console.log(response.data)
+      
+      setPosts([...posts, response.data])
+    })
+  }
+
   useEffect(handleIndex, [])
   
     return (
       <main>
-        <PostNew />
+        <PostNew onCreate={handleCreate} />
         <PostIndex name={name} posts={posts} onShowPost={showModal} />
         <Modal show={isPostsShowVisible} onClose={closeModal}>
+        <PostsShow recipe={currentPost} />
         <p>TEST</p>
         <div>
           <p>title: {currentPost.title}</p>
